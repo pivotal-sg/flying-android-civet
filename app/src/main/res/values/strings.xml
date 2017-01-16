@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Flying Civet</string>
+    <string name="no_active_runs">There are no active Kopi Runs right now</string>
 </resources>
