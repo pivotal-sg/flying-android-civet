@@ -8,8 +8,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.Espresso.pressBack;
 import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -29,9 +29,17 @@ public class MainActivityTest {
 
     @Test
     public void clickOnStartRun_goToPlacesActivity() {
-        onView(withId(R.id.start_run_button))
-                .perform(click());
+        onView(withId(R.id.start_run_button)).perform(click());
 
         onView(withId(R.id.coffee_places_list)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void clickOnBack_navigatesToMainActivity() {
+        onView(withId(R.id.start_run_button)).perform(click());
+        pressBack();
+
+        onView(withId(R.id.run_status_text))
+                .check(matches(withText(R.string.no_active_runs)));
     }
 }
