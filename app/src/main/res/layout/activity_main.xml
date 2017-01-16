@@ -21,4 +21,11 @@
         android:textSize="18pt"
         android:textAlignment="center"
         android:text="@string/no_active_runs" />
+
+    <Button
+        android:id="@+id/start_run_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="START A KOPI RUN"/>
+
 </LinearLayout>
